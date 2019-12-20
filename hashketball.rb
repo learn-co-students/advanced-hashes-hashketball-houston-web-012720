@@ -228,16 +228,17 @@ def player_numbers(team_name)
  
  def big_shoe_rebounds
   shoe_size = 0
-  rebounds = 0 
-  game_hash.each_value do |value|
-    value[:players].each do |index|
-      if index[:shoe] > shoe_size
-        shoe_size = index[:shoe]
-        rebounds = index[:rebounds]
+  rebounds = 0
+
+  game_hash.each do |team, team_data|
+    team_data[:players].each do |player|
+      if player[:shoe] > shoe_size
+        shoe_size = player[:shoe]
+        rebounds = player[:rebounds]
       end
     end
   end
 
-  rebounds
+ rebounds
 end
- 
+
