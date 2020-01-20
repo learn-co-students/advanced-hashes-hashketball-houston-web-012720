@@ -280,7 +280,7 @@ end
    end
    result
  end
- #hi
+
 def long_name_steals_a_ton?
   length_of_player_name = 0 
   highest_steals = 0
