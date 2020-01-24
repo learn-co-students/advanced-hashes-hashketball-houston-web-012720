@@ -267,9 +267,31 @@ def long_name_steals_a_ton?()
 end
 
 
+=begin
+
+# This is a helper method that makes it less repetitive to iterate through
+# the hash for every statistic. That way, I can have methods that return
+# each stat given a player's name, but don't have to write the same loop
+# over and over again.  
 
 
+def iterate_through_players_for(name, statistic)
+  game_hash.each do |team, game_data|
+    game_data[:players].each do |player|
+      if player[:player_name] == name
+        return player[statistic]
+      end
+    end
+  end
+end
+  
+end
 
+=begin
 
-
+def long_name_steals_a_ton?
+  player_with_most_of(:steals) == player_with_most_of(:player_name)
+end 
+end
+=end
 
